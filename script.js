@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Consigli salute
     const consigli = [
-        'Bevi almeno 2 litri d’acqua al giorno!',
+        "Bevi almeno 2 litri d'acqua al giorno!",
         'Fai una passeggiata di almeno 30 minuti ogni giorno.',
         'Non saltare mai la colazione!',
         'Dedica tempo al relax e alla respirazione profonda.',
@@ -54,10 +54,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Curiosità mediche
     const curiosita = [
         'Il cuore umano batte circa 100.000 volte al giorno.',
-        'Le ossa più piccole del corpo sono nell’orecchio.',
-        'Il fegato è l’organo interno più grande.',
-        'Il sangue rappresenta circa l’8% del peso corporeo.',
-        'La pelle è l’organo più esteso del corpo umano.',
+        "Le ossa più piccole del corpo sono nell'orecchio.",
+        "Il fegato è l'organo interno più grande.",
+        "Il sangue rappresenta circa l'8% del peso corporeo.",
+        "La pelle è l'organo più esteso del corpo umano.",
         'Il cervello contiene circa 86 miliardi di neuroni.',
         'Le impronte della lingua sono uniche come quelle delle dita.'
     ];
@@ -76,4 +76,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, { threshold: 0.2 });
     timelineItems.forEach(el => timelineObserver.observe(el));
+
+    // Hamburger menu mobile
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('main-nav');
+    if(hamburger && nav) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            nav.classList.toggle('open');
+        });
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                nav.classList.remove('open');
+            });
+        });
+    }
 }); 
